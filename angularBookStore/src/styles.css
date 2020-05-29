@@ -1,0 +1,8 @@
+@font-face{
+    font-family: 'Architects_Daughter';
+    src: url(/assets/fonts/Architects_Daughter/ArchitectsDaughter-Regular.ttf) format("truetype");
+}
+
+body{
+    font-family: 'Architects_Daughter';
+}

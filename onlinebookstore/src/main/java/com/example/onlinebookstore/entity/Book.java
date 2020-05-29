@@ -45,7 +45,7 @@ public class Book {
 	private boolean active;
 	
 	@Column(name="units_in_stock")
-	private int unitInStock;
+	private int unitsInStock;
 	
 	@Column(name="date_created")
 	private Date createdOn;
@@ -113,12 +113,12 @@ public class Book {
 		this.active = active;
 	}
 
-	public int getUnitInStock() {
-		return unitInStock;
+	public int getUnitsInStock() {
+		return unitsInStock;
 	}
 
-	public void setUnitInStock(int unitInStock) {
-		this.unitInStock = unitInStock;
+	public void setUnitsInStock(int unitsInStock) {
+		this.unitsInStock = unitsInStock;
 	}
 
 	public Date getCreatedOn() {
@@ -146,7 +146,7 @@ public class Book {
 	}
 
 	public Book(String sku, String name, String description, BigDecimal unitPrice, String imageUrl,
-			boolean active, int unitInStock, Date createdOn, Date updatedOn, BookCategory category) {
+			boolean active, int unitsInStock, Date createdOn, Date updatedOn, BookCategory category) {
 		super();
 		this.sku = sku;
 		this.name = name;
@@ -154,7 +154,7 @@ public class Book {
 		this.unitPrice = unitPrice;
 		this.imageUrl = imageUrl;
 		this.active = active;
-		this.unitInStock = unitInStock;
+		this.unitsInStock = unitsInStock;
 		this.createdOn = createdOn;
 		this.updatedOn = updatedOn;
 		this.category = category;
