@@ -1,8 +1,34 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+
 @font-face{
     font-family: 'Architects_Daughter';
     src: url(/assets/fonts/Architects_Daughter/ArchitectsDaughter-Regular.ttf) format("truetype");
 }
 
-body{
+h1{
     font-family: 'Architects_Daughter';
+}
+body {
+    padding-top: 56px;
+    font-family: 'Architects_Daughter';
+}
+
+body, html{
+    height: 100%;
+}
+
+.footer{
+    position: absolute;
+    bottom: 10px;
+    height: 60px;
+}
+
+.wrapper{
+    min-height: 100%;
+    position: relative;
+}
+
+.content{
+    padding-bottom: 100px;
 }
