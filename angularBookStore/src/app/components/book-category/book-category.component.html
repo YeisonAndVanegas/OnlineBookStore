@@ -1,0 +1,5 @@
+<div class="list-group">
+    <!--For now let's hard-code the category id's, in the next feature will display categories dinamically-->
+      <a [routerLink]="'/category/'+category.id" *ngFor="let category of bookCategories" class="list-group-item"
+        routerLinkActive="bg-primary text-white font-weight-bold">{{category.categoryName}}</a>
+      </div>
