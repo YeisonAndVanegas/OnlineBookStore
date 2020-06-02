@@ -36,7 +36,3 @@ body, html{
 a{
     cursor: pointer;
 }
-
-.pagination{
-    float: right;
-}
