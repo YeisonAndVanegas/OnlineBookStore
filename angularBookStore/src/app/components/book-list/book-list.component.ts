@@ -14,19 +14,27 @@ export class BookListComponent implements OnInit {
   books: Book[];
   currentCategoryId: number;
   searchMode: boolean;
+  pageOfItems: Array<Book>;
+  pageSize: number = 6;
 
   constructor(private _bookService: BookService,
               private _activedRoute: ActivatedRoute) { }
 
   //ngOnInit() is a lifecycle method, it will call as soon as bookListComponent is created
-  ngOnInit(): void {
-    this._activedRoute.paramMap.subscribe(()=>{
-        this.listBook();
-      })
+  ngOnInit() {
+    this._activedRoute.paramMap.subscribe(
+      _data =>{
+        this.listBooks();
+      });
+  }
+
+  pageClick(pageOfItems: Array<Book>){
+    //Update the current page of items
+    this.pageOfItems = pageOfItems;
   }
 
   //Create a method listBooks() to call service method
-  listBook(){
+  listBooks(){
     this.searchMode = this._activedRoute.snapshot.paramMap.has('keyword');
 
     if(this.searchMode){
@@ -60,6 +68,11 @@ export class BookListComponent implements OnInit {
         //console.log(data);
         this.books = data;
       }
-    )
+    );
+  }
+
+  updatePageSize(pageSize: number){
+    this.pageSize = pageSize;
+    this.listBooks();
   }
 }
