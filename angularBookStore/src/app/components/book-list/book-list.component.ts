@@ -3,6 +3,8 @@ import { Book } from 'src/app/common/book';
 import { BookService } from 'src/app/services/book.service';
 import { ActivatedRoute } from '@angular/router';
 import { NgbPaginationConfig } from "@ng-bootstrap/ng-bootstrap";
+import { CartService } from 'src/app/services/cart.service';
+import { CartItem } from 'src/app/common/cart-item';
 
 @Component({
   selector: 'app-book-list',
@@ -22,9 +24,9 @@ export class BookListComponent implements OnInit {
   pageSize: number = 5;
   totalRecords: number = 0;
  
-
   constructor(private _bookService: BookService,
               private _activedRoute: ActivatedRoute,
+              private _cartService: CartService,
               _config: NgbPaginationConfig) { 
                 _config.maxSize = 3;
                 _config.boundaryLinks = true;
@@ -97,5 +99,12 @@ export class BookListComponent implements OnInit {
       this.totalRecords = data.page.totalElements;
       this.pageSize = data.page.size;
     }
+  }
+
+  addToCart(book: Book){
+    console.log(`book name: ${book.name}, and price: ${book.unitPrice}`);
+    const cartItem = new CartItem(book);
+    this._cartService.addToCart(cartItem);
+
   }
 }
